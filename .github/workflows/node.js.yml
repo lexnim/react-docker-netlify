@@ -7,7 +7,7 @@ on:
   push:
     branches: [ master ]
 env:
-  APPLICATION_NAME: react-netlify
+  REPOSITORY_NAME: docker-netlify
 
 jobs:
   deoploy-to-netlify:
@@ -58,7 +58,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Build and tag image
-        run: docker build  -t "${{ secrets.DOCKER_USERNAME }}/${{ env.APPLICATION_NAME }}:latest" .
+        run: docker build  -t "${{ secrets.DOCKER_USERNAME }}/${{ env.REPOSITORY_NAME }}:latest" .
       
       - name: Docker Push
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/docker-netlify
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/${{ env.REPOSITORY_NAME }}
