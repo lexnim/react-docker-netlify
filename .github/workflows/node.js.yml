@@ -7,7 +7,7 @@ on:
   push:
     branches: [ master ]
 env:
-  APPLICATION_NAME: react-docker-netlify
+  APPLICATION_NAME: react-netlify
 
 jobs:
   deoploy-to-netlify:
